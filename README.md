@@ -288,7 +288,7 @@ ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 vim public/bbs.php
 ```
   中身  
-  (URL)    
+  (URL) https://github.com/turkey014/BBS_2021/blob/main/public/bbs.php   
   editform.php(投稿した内容を編集するページ）を作成  
 ```
 vim public/editform.php
