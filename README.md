@@ -170,21 +170,8 @@ mkdir public/image
 vim Dockerfile
 ```
   Dockerfileの中身  
-```
-FROM php:8.0-fpm-alpine AS php
-RUN apk add -U --no-cache curl-dev
-RUN docker-php-ext-install curl
-RUN apk add autoconf g++ make
-RUN pecl install apcu && docker-php-ext-enable apcu
-
-RUN docker-php-ext-install exif
-
-RUN docker-php-ext-install pdo_mysql
-
-RUN install -o www-data -g www-data -d /var/www/public/image
-
-RUN echo -e "post_max_size = 5M\nupload_max_filesize = 5M" >> ${PHP_INI_DIR}/php.ini
-```
+  (URL)https://github.com/turkey014/BBS_2021/blob/main/Dockerfile  
+<br>
   Dockerfileを編集した後は、設定を反映させるためのコマンドを実行  
   (docker-compose up している場合は一度終了してから)  
 ```
@@ -203,24 +190,8 @@ vim docker-compose.yml
 vim nginx/conf.d/default.conf
 ```
   中身  
-```
-server {
-    listen       0.0.0.0:80;
-    server_name  _;
-    charset      utf-8;
-    client_max_body_size 6M;
-
-    root /var/www/public;
-
-    location ~ \.php$ {
-        fastcgi_pass  php:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        include       fastcgi_params;
-    }
-}
-```
-
+  (URL)https://github.com/turkey014/BBS_2021/blob/main/default.conf  
+<br>
 ## 5.データベースの設定
   dockerコンテナ内のmysqlサーバーにmysqlコマンドで接続する場合は，以下のコマンドを実行する  
 ```
@@ -246,7 +217,8 @@ ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 vim public/bbs.php
 ```
   中身  
-  (URL) https://github.com/turkey014/BBS_2021/blob/main/public/bbs.php   
+  (URL)https://github.com/turkey014/BBS_2021/blob/main/public/bbs.php  
+<br>  
   editform.php(投稿した内容を編集するページ）を作成  
 ```
 vim public/editform.php
