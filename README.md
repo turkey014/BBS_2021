@@ -294,7 +294,7 @@ vim public/bbs.php
 vim public/editform.php
 ```
   中身  
-  (URL)
+  (URL)https://github.com/turkey014/BBS_2021/blob/main/public/editform.php
 
 
 ## 7.動作確認
