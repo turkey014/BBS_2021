@@ -196,49 +196,7 @@ docker-compose build
 vim docker-compose.yml
 ```
   中身
-```
-version: "3"
-
-services:
-  web:
-    image: nginx:latest
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - ./public/:/var/www/public/
-      - image:/var/www/public/image/
-    depends_on:
-      - php
-  php:
-    container_name: php
-    build:
-      context: .
-      target: php
-    volumes:
-      - ./public/:/var/www/public/
-      - image:/var/www/public/image/
-  mysql:
-    container_name: mysql
-    image: mysql:5.7
-    environment:
-      MYSQL_DATABASE: BBS_2021
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      TZ: Asia/Tokyo
-    volumes:
-      - mysql:/var/lib/mysql
-    command: >
-      mysqld
-      --character-set-server=utf8mb4
-      --collation-server=utf8mb4_unicode_ci
-      --max_allowed_packet=4MB
-
-volumes:
-  image:
-    driver: local
-  mysql:
-    driver: local
-```
+  (URL)https://github.com/turkey014/BBS_2021/blob/main/docker-compose.yml
 
 3. nginxの設定
 ```
