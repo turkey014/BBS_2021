@@ -1,4 +1,4 @@
-このrepositoryのwikiに同じことを書きました。
+間違えて先に、このrepositoryのwikiに同じことを書きました。　　　　
 以下、コピペ
 
 # 手順書
